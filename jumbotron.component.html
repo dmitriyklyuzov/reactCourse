@@ -1,0 +1,44 @@
+<script type="text/babel">
+	var Jumbotron = React.createClass({
+		
+		propTypes: {
+			title: React.PropTypes.string.isRequired
+		},
+
+		getDefaultProps: function(){
+			return {
+				title: "Hello World",
+				text: "Sample paragraph text. I will get this fucking job and I will be the best at it."
+			}
+		},
+
+		render: function(){
+			return (
+				<div>
+					<div className="jumbotron">
+						<h1>{this.props.title}</h1>
+						<p>{this.props.text}</p>
+						<p>
+							<a
+								onClick = {this.onClick.bind(this, 'Hello', 'Goodbye')}
+								href=""
+								className="btn btn-primary btn-lg"
+								href="#"
+								role="button">Learn More
+							</a>
+						</p>
+					</div>
+				</div>
+			)
+		},
+
+		onClick: function(greeting, bye){
+			alert(bye);
+		}
+	});
+
+	ReactDOM.render(
+		<Jumbotron/>,
+		document.getElementById('jumbotron')
+	);
+</script>

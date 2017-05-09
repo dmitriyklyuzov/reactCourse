@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Learning React</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../vendor/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="../vendor/react/0.14.3/build/react.js"></script>
+		<script src="../vendor/react/0.14.3/build/react-dom.js"></script>
+		<script src="browser.min.js"></script>
+		<!-- <script src="https://fb.me/react-0.14.7.js"></script> -->
+		<!-- <script src="https://fb.me/react-dom-0.14.7.js"></script>	 -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.25/browser.min.js"></script> -->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="jumbotron"></div>
+					<div id="app"></div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/babel">
+
+			var App = React.createClass({
+
+				getInitialState: function(){
+					return{
+						text: 'Hello World'
+					}
+				},
+
+				render: function(){
+					return (
+						<div>
+							<h1>{this.state.text}</h1>
+							<button onClick={this.changeText} className="btn btn-primary btn-lg">Click</button>
+						</div>
+					)
+				},
+
+				changeText: function(){
+					this.setState({text: 'Welcome to my app'});
+				}
+			});
+
+			ReactDOM.render(
+				<App />,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>
